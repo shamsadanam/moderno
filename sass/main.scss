@@ -1,0 +1,260 @@
+@import "_mixins.scss";
+@import "_components.scss";
+
+// html {
+//   font-size: 62.5%;
+// }
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-size: 16px;
+  font-family: "Montserrat";
+}
+
+// // adding media queries
+// @include respond(992px) {
+//     //codes to happen
+// }
+.header-bg {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url("../img/cafeteria\ dark.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  color: #fff;
+}
+.my {
+  &__navbar {
+    background-color: transparent;
+
+    width: 100%;
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
+  &__logo {
+    width: 57px;
+    height: 57px;
+  }
+  &__ham {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    text-align: center;
+    background-color: rgb(252, 252, 252);
+    padding: 5px 10px;
+    box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.2);
+  }
+  &__ham {
+    color: #000;
+    font-size: 30px;
+    position: fixed;
+    top: 14px;
+    right: 30px;
+    z-index: 999;
+  }
+  &__hidden-nav {
+    display: none;
+    background-color: #e75137;
+    position: fixed;
+    top: 0px;
+    right: 0px;
+    z-index: 1;
+
+    width: 200px;
+    height: 100vh;
+    text-align: center;
+    padding: 5px;
+    padding-top: 80px;
+  }
+}
+
+.hero {
+  height: 90vh;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  &__inner {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    // height: 377px;
+  }
+  &__heading {
+    font-size: 50px;
+    font-weight: bold;
+    margin-bottom: 40px;
+  }
+  &__sub {
+    font-size: 16px;
+    margin-bottom: 30px;
+    width: 50%;
+    text-align: center;
+  }
+  &__btn {
+    background-color: #fa694e;
+    color: #fff;
+    // border: none;
+    // outline: none;
+  }
+  &__btn:hover {
+    background-color: #e75137;
+    color: #fff;
+  }
+}
+
+.features {
+  margin-top: 100px;
+  margin-bottom: 100px;
+  .container {
+    max-width: 1000px;
+  }
+  &-card {
+    // transform: scale(0.9);
+    transition: all 0.3s;
+    &__icon {
+      width: 80px;
+      height: 80px;
+      margin: auto;
+      border-radius: 50%;
+      border: 1px solid #fa694e;
+      font-size: 30px;
+      color: #fa694e;
+
+      margin-bottom: 25px;
+
+      transition: all 0.3s;
+
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    &__title {
+      font-size: 18px;
+      font-weight: bold;
+      margin-bottom: 30px;
+    }
+  }
+}
+
+.story {
+  background-color: #fbfbfb;
+
+  height: 500px;
+
+  &__header {
+    margin-top: 80px;
+    margin-bottom: 90px;
+  }
+  &__title {
+    font-size: 25px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    &--sm {
+      font-size: 20px;
+      margin-bottom: 40px;
+    }
+  }
+  &__text {
+    font-family: "Lora";
+  }
+  &__cta {
+    margin-top: 40px;
+  }
+  &__gallery {
+    margin-top: 80px;
+  }
+
+  &__gallery-item {
+    &-inner {
+      position: relative;
+    }
+    &:nth-of-type(n + 4) {
+      margin-top: 30px;
+    }
+
+    @include respond(991px) {
+      &:nth-of-type(n + 3) {
+        margin-top: 30px;
+      }
+    }
+
+    @include respond(767px) {
+      &:nth-of-type(n + 2) {
+        margin-top: 30px;
+      }
+    }
+    &:hover {
+      cursor: pointer;
+    }
+    &:hover .story__gallery-icon {
+      opacity: 1;
+    }
+  }
+
+  &__gallery-thumb {
+    width: 100%;
+  }
+  &__gallery-icon {
+    @include abs;
+
+    transition: all 0.2s;
+    display: inline-block;
+    opacity: 0;
+    width: 100%;
+    margin: auto;
+    height: 100%;
+    text-align: center;
+    background-color: rgba(0, 0, 0, 0.2);
+    & div {
+      width: 50px;
+      height: 50px;
+      border-radius: 10px;
+      @include absCenter;
+
+      background-color: #fa694e;
+      & i {
+        @include absCenter;
+        color: #fff;
+        font-size: 20px;
+        transition: all 0.2s;
+      }
+    }
+  }
+}
+
+// bootstrap-customization
+
+.navbar-toggler {
+  border: none;
+}
+.navbar-toggler:focus {
+  outline: none;
+}
+.features .card {
+  transition: all 0.3s;
+  padding: 10px 0;
+}
+
+.features .card:hover {
+  cursor: pointer;
+  transform: scale(1.1);
+}
+.card:hover .features-card__icon {
+  color: #fff;
+  background-color: #fa694e;
+  border-color: transparent;
+}
+// .card{
+//   text-center
+// }
